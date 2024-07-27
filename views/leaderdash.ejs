@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <form method="post" action="/logout"><button>Logout</button></form>
+        </div>
+        <a href="/userdash">Add users</a>
+    </div>
+    <div>
+        <% for(let i of users){ %>
+            <% if(i){ %>
+                <div>
+                    Name: <%= i.username %><br>
+                        Email: <%= i.email %>
+                            <form action="/deleteUser/<%= i._id %>?_method=DELETE" method="POST">
+                                <button>Delete user</button>
+                            </form>
+                </div><br><br>
+                <% } %>
+                    <% } %>
+    </div>
+</body>
+
+</html>
